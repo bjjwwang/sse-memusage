@@ -1,5 +1,5 @@
 import os,psutil,sys
-
+import time
 def get_process_byname(name):
     pids = psutil.pids()
     for pid in pids:
@@ -22,8 +22,8 @@ if __name__ == "__main__":
             moduleName = cmd
             break
     while True:
-        os.system("sleep 1")
-        p = get_process_byname("overflow")
+        time.sleep(1)
+        p = get_process_byname("sse")
         memInfo = p.memory_info()
         print (memInfo.rss/1024,'k')
 
