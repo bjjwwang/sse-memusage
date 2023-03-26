@@ -12,18 +12,11 @@ def get_process_byname(name):
 
 
 if __name__ == "__main__":
-    p = get_process_byname("sse")
-    if p is None:
-        sys.exit(0)
-    cmds = p.cmdline()
-    moduleName = ""
-    for cmd in cmds:
-        if ".bc" in cmd:
-            moduleName = cmd
-            break
     while True:
-        time.sleep(1)
+        time.sleep(3)
         p = get_process_byname("sse")
+        if p is None:
+            continue
         memInfo = p.memory_info()
         print (memInfo.rss/1024,'k')
 
